@@ -2,14 +2,37 @@
     padding: 0;
     box-sizing: border-box;
     margin: 0;
+    /* outline: 1px solid red; */
    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+body{
+     background-image: linear-gradient(to bottom, rgb(255, 255, 255) 50%, rgba(180, 180, 255, 0.219));
+     min-height: 100vh ;
+}
+
+.body-bg {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;        /* cover width */
+  height: 100%;       /* cover height */
+  object-fit: contain; /* or use "cover" for full background style */
+  opacity: 0.05;       /* ← change opacity here */
+  pointer-events: none; /* keeps image from blocking clicks */
+  z-index: -1;       /* puts the image behind everything */
+}
+
+
 nav{
+    position: sticky;
+    top: 0;
+    background-color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 10px;
+    padding: 20px;
+    z-index: 10;
     img{
         width: 200px;
     }
@@ -31,18 +54,11 @@ nav{
     }
 }
 
-h1{
-    font-size: 80px;
-    color: navy;
-    text-align: center;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    line-height: 1;
-}
 dialog{
     margin: auto;
     form{
         display: grid;
-    grid-template-columns: auto auto;
+        grid-template-columns: auto auto;
         padding: 10px;
         .formGroup{
             margin: 5px;
@@ -85,18 +101,29 @@ dialog{
     }
 }
 
-    main{
-        margin: auto;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center; 
-        align-items: center;
-        #rxicontainer, #rodcontainer{
-            background-color: whitesmoke;
+main{
+    min-height: 80vh;
+    position: relative;
+    z-index: 1; 
+    display: grid;
+    gap: 10px;
+    /* grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); */
+    grid-template-columns: 800px 800px;
+    align-items: center;
+    justify-content: center;
+    h1{
+        font-size: 80px;
+        color: navy;
+        text-align: center;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        line-height: 1;
+        grid-column: 1 / span 2;
+    }
+    #rxicontainer, #rodcontainer{
+        background-color: whitesmoke;
             border-radius: 15px;
             padding: 20px;
-            margin: 10px;
-            width: 520px;
+
             height: 600px;
             box-shadow: 5px 2px 5px rgba(0, 0, 0, 0.13);
             .headContainer{
@@ -144,4 +171,16 @@ dialog{
             /* Limit width of specific column (Subject) */
         
     }
-    
+    .container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+
+/* Small screens (phones) */
+@media (max-width: 500px) {
+  main {
+    grid-template-columns: auto;
+  }
+}
