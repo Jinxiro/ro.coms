@@ -13,6 +13,7 @@
   
 
     <dialog id="addComsDialog">
+      <h3 id="ModalHead"></h3>
       <form method="dialog">
         <div class="formGroup">
           <label for="orsInput">Date</label>
@@ -171,6 +172,7 @@
         </div>
         
         <input type="submit">
+        <input type="button" value="Cancel" onclick="addComsDialog.close()">
       </form>
     </dialog>
     <nav>
@@ -188,7 +190,7 @@
       <div id="rxicontainer">
         <div class="headContainer">
           <h3>RXI Incoming Communications</h3>
-          <button onclick="addComsDialog.showModal()">Add New</button>
+          <button onclick="rxicontainerModal()">Add New</button>
         </div>
         <table id="rxiTable">
           <tr>
@@ -210,7 +212,7 @@
       <div id="rodcontainer">
         <div class="headContainer">
           <h3>ROD Incoming Communications</h3>
-          <button>Add New</button>
+          <button onclick="rodcontainerModal()">Add New</button>
         </div>
         <table id="rodTable">
           <tr>
@@ -232,4 +234,14 @@
       </div>
     </main>
   </body>
+  <script>
+   function rxicontainerModal(){
+    ModalHead.innerHTML = "RXI Incoming Communications";
+    addComsDialog.showModal();
+   }
+   function rodcontainerModal(){
+    ModalHead.innerHTML = "ROD Incoming Communications";
+    addComsDialog.showModal();
+   }
+  </script>
 </html>

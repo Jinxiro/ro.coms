@@ -56,6 +56,9 @@ nav{
 
 dialog{
     margin: auto;
+    #ModalHead{
+        padding: 10px 20px;
+    }
     form{
         display: grid;
         grid-template-columns: auto auto;
@@ -81,7 +84,7 @@ dialog{
                 width: 200px;
             }
         }
-        input[type=submit]{
+        input[type=submit], input[type=button]{
             padding: 10px;
             margin: 5px;
             color: white;
@@ -90,6 +93,10 @@ dialog{
             width: auto;
             background-color: royalblue;
             grid-column: 1 / span 2;
+        }
+        input[type=button]{
+            color: black;
+            background-color: rgb(224, 224, 224);
         }
         .formGroup:nth-child(8), .formGroup:nth-child(5), .formGroup:nth-child(19){
             
@@ -101,14 +108,15 @@ dialog{
     }
 }
 
-main{
+main{   
+    padding: 30px;
     min-height: 80vh;
     position: relative;
     z-index: 1; 
     display: grid;
     gap: 10px;
     /* grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); */
-    grid-template-columns: 800px 800px;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
     justify-content: center;
     h1{
@@ -123,7 +131,6 @@ main{
         background-color: whitesmoke;
             border-radius: 15px;
             padding: 20px;
-
             height: 600px;
             box-shadow: 5px 2px 5px rgba(0, 0, 0, 0.13);
             .headContainer{
@@ -181,6 +188,6 @@ main{
 /* Small screens (phones) */
 @media (max-width: 500px) {
   main {
-    grid-template-columns: auto;
+    grid-template-columns: 1fr;
   }
 }
